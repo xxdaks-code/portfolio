@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&family=Space+Mono:wght@400;700&family=Playball&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --hot-pink: #E35292;
+  --charcoal: #1A1A1A;
+  --white: #FFFFFF;
+  --mint: #D2F4D2;
+  --grass: #1E9020;
+  --rose-card: #FCE8E6;
+  --berry: #B32D56;
+  --lavender-bg: #F7E5EE;
+  --ink: #1A1A1A;
+  --page-bg: #F7E5EE;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--lavender-bg);
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(227,82,146,0.06) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(210,244,210,0.2) 0%, transparent 50%);
+  color: var(--charcoal);
+  font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ─── Page title font — DM Serif Display ────────────────────── */
+.font-display { font-family: 'DM Serif Display', serif; }
+.font-syne    { font-family: 'Syne', sans-serif; }
+.font-outfit  { font-family: 'Outfit', sans-serif; }
+.font-mono    { font-family: 'Space Mono', monospace; }
+
+/* ─── Grain ──────────────────────────────────────────────────── */
+.grain::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ─── Receipt ─────────────────────────────────────────────────── */
+.receipt { background: var(--mint); position: relative; font-family: 'Space Mono', monospace; }
+.receipt-zigzag-top { position: relative; }
+.receipt-zigzag-top::before {
+  content: '';
+  position: absolute;
+  top: -10px; left: 0; right: 0; height: 12px;
+  background: var(--mint);
+  clip-path: polygon(0% 100%,2.5% 0%,5% 100%,7.5% 0%,10% 100%,12.5% 0%,15% 100%,17.5% 0%,20% 100%,22.5% 0%,25% 100%,27.5% 0%,30% 100%,32.5% 0%,35% 100%,37.5% 0%,40% 100%,42.5% 0%,45% 100%,47.5% 0%,50% 100%,52.5% 0%,55% 100%,57.5% 0%,60% 100%,62.5% 0%,65% 100%,67.5% 0%,70% 100%,72.5% 0%,75% 100%,77.5% 0%,80% 100%,82.5% 0%,85% 100%,87.5% 0%,90% 100%,92.5% 0%,95% 100%,97.5% 0%,100% 100%);
+}
+.receipt-zigzag-bottom { position: relative; }
+.receipt-zigzag-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: -10px; left: 0; right: 0; height: 12px;
+  background: var(--mint);
+  clip-path: polygon(0% 0%,2.5% 100%,5% 0%,7.5% 100%,10% 0%,12.5% 100%,15% 0%,17.5% 100%,20% 0%,22.5% 100%,25% 0%,27.5% 100%,30% 0%,32.5% 100%,35% 0%,37.5% 100%,40% 0%,42.5% 100%,45% 0%,47.5% 100%,50% 0%,52.5% 100%,55% 0%,57.5% 100%,60% 0%,62.5% 100%,65% 0%,67.5% 100%,70% 0%,72.5% 100%,75% 0%,77.5% 100%,80% 0%,82.5% 100%,85% 0%,87.5% 100%,90% 0%,92.5% 100%,95% 0%,97.5% 100%,100% 0%);
+}
+
+/* ─── Cards ───────────────────────────────────────────────────── */
+.rose-card { background: var(--rose-card); border: 2px solid var(--berry); box-shadow: 4px 4px 0 var(--berry), 8px 8px 20px rgba(179,45,86,0.10); position: relative; }
+.brutal-card { background: var(--white); border: 2.5px solid var(--charcoal); box-shadow: 4px 4px 0 var(--charcoal); position: relative; }
+.brutal-card-pink { background: var(--hot-pink); border: 2.5px solid var(--charcoal); box-shadow: 4px 4px 0 var(--charcoal); color: var(--white); }
+
+/* ─── Badge ───────────────────────────────────────────────────── */
+.badge { display: inline-block; padding: 4px 12px; border-radius: 999px; font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; border: 1.5px solid currentColor; }
+.badge-pink  { background: var(--hot-pink); color: #fff; border-color: var(--charcoal); }
+.badge-mint  { background: var(--mint); color: var(--grass); border-color: var(--grass); }
+.badge-berry { background: var(--rose-card); color: var(--berry); border-color: var(--berry); }
+.badge-dark  { background: var(--charcoal); color: #fff; border-color: var(--charcoal); }
+
+/* ─── Halftone ────────────────────────────────────────────────── */
+.halftone { background-image: radial-gradient(circle, rgba(227,82,146,0.15) 1.5px, transparent 1.5px); background-size: 14px 14px; }
+.halftone-dark { background-image: radial-gradient(circle, rgba(26,26,26,0.08) 1.5px, transparent 1.5px); background-size: 14px 14px; }
+
+/* ─── Washi ───────────────────────────────────────────────────── */
+.washi { position: absolute; height: 20px; background: rgba(227,82,146,0.45); z-index: 10; pointer-events: none; border-left: 1px solid rgba(179,45,86,0.2); border-right: 1px solid rgba(179,45,86,0.2); }
+
+/* ─── Nav ─────────────────────────────────────────────────────── */
+.nav-link { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; color: var(--charcoal); text-decoration: none; padding: 4px 0; position: relative; transition: color 0.15s; }
+.nav-link:hover { color: var(--hot-pink); }
+.nav-link.active { color: var(--hot-pink); }
+.nav-link.active::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 2px; background: var(--hot-pink); }
+
+/* ─── Scrollbar ───────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--lavender-bg); }
+::-webkit-scrollbar-thumb { background: var(--hot-pink); border-radius: 3px; }
+
+/* ─── Animations ──────────────────────────────────────────────── */
+@keyframes float { 0%, 100% { transform: translateY(0px) rotate(var(--rot, 0deg)); } 50% { transform: translateY(-6px) rotate(var(--rot, 0deg)); } }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-33.333%); } }
+@keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.animate-float { animation: float 5s ease-in-out infinite; }
+.animate-spin-slow { animation: spin-slow 12s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .animate-float, .animate-spin-slow { animation: none; } }
+
+/* ─── Inline page nav bar ─────────────────────────────────────── */
+.page-nav { display: flex; gap: 0; border: 2.5px solid #1A1A1A; overflow: hidden; flex-wrap: wrap; }
+.page-nav-link { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; color: #1A1A1A; text-decoration: none; padding: 10px 20px; background: #fff; border-right: 2px solid #1A1A1A; transition: background 0.15s, color 0.15s; white-space: nowrap; }
+.page-nav-link:last-child { border-right: none; }
+.page-nav-link:hover, .page-nav-link.active { background: #E35292; color: #fff; }
+
+@media (max-width: 640px) { .hide-mobile { display: none !important; } }
